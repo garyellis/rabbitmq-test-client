@@ -1,0 +1,10 @@
+---
+rabbitmq-test-client:
+  build: Dockerfile
+  image: ci-server:5000/rabbitmq-cluster
+  pre:
+    - echo "Preparing rabbitmq-test-client"
+  test:
+    - ./tests/unit.sh ci-server:5000/rabbitmq-test-client
+  post:
+    - echo "Finished rabbitmq-test-client"
